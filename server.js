@@ -17,3 +17,6 @@ mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost/populatedb`, {
   useCreateIndex: true,
   useFindAndModify: false
 });
+app.listen(PORT, () => {
+  console.log(`App running on http://localhost:${PORT}`);
+});
