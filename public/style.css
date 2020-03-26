@@ -406,7 +406,14 @@ form > button {
 .ui.card h2 {
   padding: 10px;
 }
-
+#lastExercise {
+  display: flex;
+  justify-content: center;
+}
+.exerciseList {
+  display: grid;
+  justify-content: center;
+}
 .buttons .ui.button:first-child {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
