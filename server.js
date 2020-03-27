@@ -11,12 +11,17 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(`public`));
 
-mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost/workoutdb`, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false
-});
+mongoose.connect(
+  process.env.MONGODB_URI ||
+    `mongodb://user:password@ds031925.mlab.com:31925/heroku_hk8g5z7k`,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+    useMongoClient: true
+  }
+);
 require(`./routes/api-Routes`)(app);
 require(`./routes/html-routes`)(app);
 app.listen(PORT, () => {
