@@ -11,6 +11,13 @@ For this assignment the front end code was provided as is.
 
 It was my job to build the back-end of this application. In order to build a functional back end I had to create Mongo database with a Mongoose schema and handle routes with Express.
 
+## Table of Contents
+
+- [Purpose](#Purpose)
+
+- [Functionality](#Functionality)
+- [Technologies](#Technologies)
+
 ## Purpose
 
 The user story that defines this product's intent and usability is as follows:
@@ -45,3 +52,11 @@ app.get(`/api/workouts/range`, (req, res) => {
     });
 });
 ```
+
+## Technologies
+
+- MongoDB
+- Mongoose
+- Express
+- ChartJS
+- Bootstrap
