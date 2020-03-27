@@ -119,3 +119,8 @@ app.get(`/api/workouts/range`, (req, res) => {
 - Mongoose
 - Express
 - ChartJS
+
+## Known Bugs
+
+It is possible that users can create an error in this application. If a user continually adds to a workout and upon their last addition selects "Add Exercise" and then clicks "Complete" a bug occurs.
+The selection of "Complete" at this point submits an exercise with empty strings as the "Add Exercise" was selected first. The front end should account for this and the PUT should be removed from the "Complete" button events. "Add Exercise" should be the only button with a PUT request.
