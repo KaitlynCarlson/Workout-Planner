@@ -5,7 +5,6 @@ const db = require(`../models`);
 module.exports = app => {
   app.get(`/api/workouts/`, (req, res) => {
     db.Workout.find({})
-      .sort({ day: -1 })
 
       .then(dbWorkouts => {
         res.json(dbWorkouts);
