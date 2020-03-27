@@ -14,8 +14,9 @@ module.exports = app => {
   });
   app.get(`/api/workouts/range`, (req, res) => {
     db.Workout.find({})
+      .sort({ day: -1 })
       .then(dbWorkout => {
-        res.json(dbWorkout);
+        res.json(dbWorkout.slice(0, 10));
       })
       .catch(err => {
         res.json(err);
