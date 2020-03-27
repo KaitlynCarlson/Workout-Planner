@@ -16,13 +16,9 @@ require(`./routes/html-routes`)(app);
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect(
-  process.env.MONGODB_URI ||
-    `mongodb://user1:password1@ds031925.mlab.com:31925/heroku_hk8g5z7k`,
-  {
-    useMongoClient: true
-  }
-);
+mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost/workout`, {
+  useMongoClient: true
+});
 app.listen(PORT, () => {
   console.log(`App running on http://localhost:${PORT}`);
 });
