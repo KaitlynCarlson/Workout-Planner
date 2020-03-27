@@ -19,6 +19,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost/workout`, {
   useMongoClient: true
 });
+
 app.listen(PORT, () => {
   console.log(`App running on http://localhost:${PORT}`);
 });
