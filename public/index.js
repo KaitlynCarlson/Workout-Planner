@@ -1,5 +1,5 @@
 "use strict";
-const API = require(`./api`);
+let API = require(`./api`);
 init();
 
 async function init() {
