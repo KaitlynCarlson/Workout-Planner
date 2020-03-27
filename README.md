@@ -14,7 +14,6 @@ It was my job to build the back-end of this application. In order to build a fun
 ## Table of Contents
 
 - [Purpose](#Purpose)
-
 - [Functionality](#Functionality)
 - [Technologies](#Technologies)
 
@@ -31,6 +30,67 @@ As a user, I want to be able to view create and track daily workouts. I want to 
 An example interaction of a user creating a workout and then adding an exercise to it is displayed in the provided giph below:
 
 ![Workout Tracker Gif](public/images/addExercise.gif)
+
+Perhaps the most important part of this application is the **Models**. It enables Mongoose to interact with our MongoDB. This is the foundation for each workout creation, and exercise updates. The front end enables the addition of exercises to be fairly user-proof so all we need is a Workout model with a field for the day as well as exercises. This field for day is handled entirely on the back end for the user. The exercises are where we flesh out the different types of nested keys and expected input types. The front end elimiates user error for these input fields so we don't need to worry about invalid input handling.
+
+As you will see below I utilized a virtual on the WorkoutSchema in order to create a custom property on the schema which would automatically generate the total duration of each workout's exercises. By utilizing a virtual- as opposed to a method which would act like a function, a property is created- just like the day and exercises properties, for both efficiency and ease of access.
+
+So, our workout model looks like this:
+
+```js
+const mongoose = require(`mongoose`);
+const Schema = mongoose.Schema;
+const WorkoutSchema = new Schema(
+  {
+    day: {
+      type: Date,
+      default: Date.now,
+      unique: true
+    },
+    exercises: [
+      {
+        type: {
+          type: String,
+          trim: true,
+          required: "Type of exercise is required."
+        },
+        name: {
+          type: String,
+          trim: true,
+          required: "Name of exercise is required."
+        },
+        weight: {
+          type: Number
+        },
+        sets: {
+          type: Number
+        },
+        reps: {
+          type: Number
+        },
+        duration: {
+          type: Number,
+          required: "Duration (minutes) of exercise is required."
+        },
+        distance: {
+          type: Number
+        }
+      }
+    ]
+  },
+  {
+    toJSON: {
+      virtuals: true
+    }
+  }
+);
+WorkoutSchema.virtual("totalDuration").get(function() {
+  return this.exercises.reduce((total, exercise) => {
+    return total + exercise.duration;
+  }, 0);
+});
+module.exports = mongoose.model(`Workout`, WorkoutSchema);
+```
 
 Users can also view the stats on their past 10 workouts as displayed below.
 
@@ -59,4 +119,3 @@ app.get(`/api/workouts/range`, (req, res) => {
 - Mongoose
 - Express
 - ChartJS
-- Bootstrap

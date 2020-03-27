@@ -15,7 +15,6 @@ require(`./routes/api-routes`)(app);
 require(`./routes/html-routes`)(app);
 
 mongoose.Promise = global.Promise;
-
 mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost/workout`, {
   useMongoClient: true
 });
