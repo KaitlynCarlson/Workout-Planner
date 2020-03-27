@@ -12,8 +12,7 @@ app.use(express.json());
 app.use(express.static(`public`));
 
 mongoose.connect(
-  process.env.MONGODB_URI ||
-    `mongodb://user:password@ds031925.mlab.com:31925/heroku_hk8g5z7k`,
+  process.env.MONGODB_URI || `mongodb://localhost/mongoHeadlines`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
