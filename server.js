@@ -14,10 +14,12 @@ app.use(express.static(`public`));
 require(`./routes/api-Routes`)(app);
 require(`./routes/html-routes`)(app);
 
-const MONGO_URI =
-  process.env.MONGODB_URI || `mongodb://localhost/mongoHeadlines`;
-mongoose.connect(MONGO_URI);
-
+mongoose.connect(process.env.MONGODB_URI || `mongodb://localhost/workout`, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false
+});
 app.listen(PORT, () => {
   console.log(`App running on http://localhost:${PORT}`);
 });
