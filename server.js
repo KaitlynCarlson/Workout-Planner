@@ -14,10 +14,15 @@ app.use(express.static(`public`));
 require(`./routes/api-Routes`)(app);
 require(`./routes/html-routes`)(app);
 
-const MONGODB_URI =
-  process.env.MONGODB_URI || `mongodb://localhost/mongoHeadlines`;
-mongoose.connect(MONGODB_URI);
+mongoose.Promise = global.Promise;
 
+mongoose.connect(
+  process.env.MONGODB_URI ||
+    `mongodb://user1:password1@ds031925.mlab.com:31925/heroku_hk8g5z7k`,
+  {
+    useMongoClient: true
+  }
+);
 app.listen(PORT, () => {
   console.log(`App running on http://localhost:${PORT}`);
 });
