@@ -14,6 +14,7 @@ It was my job to build the back-end of this application. In order to build a fun
 ## Table of Contents
 
 - [Purpose](#Purpose)
+- [Setup](#Setup)
 - [Functionality](#Functionality)
 - [Technologies](#Technologies)
 - [Known Bugs](#Known-Bugs)
@@ -24,6 +25,20 @@ The user story that defines this product's intent and usability is as follows:
 
 ```
 As a user, I want to be able to view create and track daily workouts. I want to be able to log multiple exercises in a workout on a given day. I should also be able to track the name, type, weight, sets, reps, and duration of exercise. If the exercise is a cardio exercise, I should be able to track my distance traveled.
+```
+
+## Setup
+
+To run this program locally, you can fork this repository and open it in your local coding program. Use the following command to install the required dependencies:
+
+```sh
+npm install
+```
+
+The application is then invoked with the following command:
+
+```sh
+node server.js
 ```
 
 ## Functionality
