@@ -35,11 +35,19 @@ To run this program locally, you can fork this repository and open it in your lo
 npm install
 ```
 
+If you would like to seed some data to start with run the seed file with the following command: 
+
+
+```sh
+npm run seed
+```
+
 The application is then invoked with the following command:
 
 ```sh
 node server.js
 ```
+
 
 ## Functionality
 
